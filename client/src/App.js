@@ -11,13 +11,13 @@ function App() {
   return (
     <Fragment>
       <h1 className="text-center">Pern Todo List</h1>
-      <Container fluid className="m-3 justify-content-cente">
+      <Container fluid className="m-5 justify-content-cente">
         <Row>
-          <Col>
+          <Col >
             {" "}
-            <InputTodo />
+            <InputTodo/>
           </Col>{" "}
-          <Col xs={3}>
+          <Col xs={4}>
             {" "}
             <EditTodo />
           </Col>

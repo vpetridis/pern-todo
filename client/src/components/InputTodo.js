@@ -24,7 +24,7 @@ console.log(response);
       <form className="d-flex" onSubmit={onSubmitForm}>
         <input
           type="text"
-          className="form-control"
+          className="form-control mr-1"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
