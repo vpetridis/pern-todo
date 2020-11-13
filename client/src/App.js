@@ -27,7 +27,6 @@ function App() {
         <Col>
           <ListTodo />{" "}
         </Col>
-        <BounceImage />
       </Container>
     </Fragment>
   );
