@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import "./App.css";
 import EditTodo from "./components/EditTodo";
 import ListTodo from "./components/ListTodo";
+import BounceImage from "./components/BounceImage";
 
 //components
 import { Container, Col, Row } from "react-bootstrap";
@@ -26,6 +27,7 @@ function App() {
         <Col>
           <ListTodo />{" "}
         </Col>
+        <BounceImage />
       </Container>
     </Fragment>
   );
