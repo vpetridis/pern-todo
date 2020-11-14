@@ -10,12 +10,12 @@ import {
 } from "reactstrap";
 
 export default class ListTodo extends Component {
-  state = { id: 0, description: [] };
+  state = { todo_id: [], description: [] };
 
   componentDidMount() {
     fetch("http://localhost:5000/todos")
       .then((res) => res.json())
-      .then((result) => this.setState({ description: result }));
+      .then((result) => this.setState({todo_id: result, description: result }, console.log(result)));
   }
   render() {
     return (
@@ -23,7 +23,7 @@ export default class ListTodo extends Component {
         {this.state.description.map((todo) => (
           <Card>
             <CardBody>
-              <CardTitle tag="h5">Todo</CardTitle>
+              <CardTitle tag="h5">Todo ID: {todo.todo_id}</CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">
                 Todo description:{" "}
               </CardSubtitle>
