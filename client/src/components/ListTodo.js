@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 
 export default class ListTodo extends Component {
-  state = { description: [] };
+  state = { id: 0, description: [] };
 
   componentDidMount() {
     fetch("http://localhost:5000/todos")
@@ -28,7 +28,9 @@ export default class ListTodo extends Component {
                 Todo description:{" "}
               </CardSubtitle>
               <CardText>{todo.description}</CardText>
-              <Button color="warning" className="mr-4">Edit</Button>
+              <Button color="warning" className="mr-4">
+                Edit
+              </Button>
               <Button color="danger">Delete</Button>
             </CardBody>
           </Card>
