@@ -3,6 +3,7 @@ import {
   Card,
   Container,
   Row,
+  Col,
   CardText,
   CardBody,
   CardTitle,
@@ -53,8 +54,18 @@ export default class ListTodo extends Component {
         {this.state.todo.map((todo) => (
           <Card key={todo.todo_id}>
             <CardBody>
-              <CardTitle tag="h5">Description: </CardTitle>
-              <CardText>{todo.description}</CardText>
+              <Row>
+                {" "}
+                <Col md={4}>
+                  {" "}
+                  <CardTitle tag="h5">Description:</CardTitle>
+                </Col> 
+                <Col md={8}>
+                  {" "}
+                  <CardText>{todo.description} </CardText>
+                </Col>
+              </Row>
+
               <Button color="warning" className="mr-4">
                 Edit
               </Button>
