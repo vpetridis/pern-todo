@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@bit/formidablelabs.react-animations.bounce-in": "^1.0.0",
+    "@bit/react-bootstrap.react-bootstrap.card": "^1.0.0",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^12.2.0",
@@ -37,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1"
   }
 }
