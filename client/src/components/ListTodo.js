@@ -16,18 +16,29 @@ export default class ListTodo extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
+
     fetch("http://localhost:5000/todos")
       .then((res) => res.json())
       .then((result) =>
         this.setState({ todo: result, isLoading: false }, console.log(result))
       );
   }
+   deleteTodo = async id => {
+    try {
+      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+        method: "DELETE"
+      });
 
+      this.setState(this.state.todo.filter(todo => todo.todo_id !== id));
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
   render() {
     if (this.state.isLoading) {
       return (
         <Container>
-          <Row className="centered">
+          <Row className="justify-content-center">
             {" "}
             <Spinner color="primary" />
           </Row>
@@ -47,7 +58,7 @@ export default class ListTodo extends Component {
               <Button color="warning" className="mr-4">
                 Edit
               </Button>
-              {/* <Button color="danger" onClick={deleteMethod(todo.todo_id)}>Delete</Button> */}
+              <Button color="danger" onClick={()=> this.deleteTodo(todo.todo_id)}>Delete</Button>
             </CardBody>
           </Card>
         ))}
@@ -56,10 +67,3 @@ export default class ListTodo extends Component {
   }
 }
 
-// // TODO - delete function
-// function deleteMethod(props) {
-//   const deleteTodo = {
-//     method: "DELETE"};
-//   fetch(`http://localhost:5000/todos/${props}`, deleteTodo)
-//     .then((res) => res.json());
-// }
