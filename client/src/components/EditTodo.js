@@ -3,6 +3,8 @@ import { Button } from "reactstrap";
 import { Modal } from "react-bootstrap";
 
 function MyVerticallyCenteredModal(props) {
+  const [description, setDescription] = useState(props.datafromParent);
+
   return (
     <Modal
       {...props}
@@ -11,20 +13,17 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <form className="m-4">
+          <input type="text" className="form-control" />
+        </form>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button color="primary" onClick={props.onHide}>
+          Save
+        </Button>
       </Modal.Footer>
     </Modal>
   );
@@ -32,11 +31,22 @@ function MyVerticallyCenteredModal(props) {
 
 function EditTodo() {
   const [modalShow, setModalShow] = React.useState(false);
-
+  
+  const saveData = (e) => {
+    this.props.updateDescription("FROM SAVE BUTTON!!!!!");
+  };
+  const multiFunc = (e)=> {
+    setModalShow(true);
+    //saveData(e);
+  }
   return (
     <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
+      <Button
+        className="mr-2"
+        color="warning"
+        onClick={(e) => multiFunc(e)}
+      >
+        Edit{" "}
       </Button>
 
       <MyVerticallyCenteredModal

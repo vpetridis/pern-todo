@@ -11,6 +11,7 @@ import {
   Button,
   Spinner,
 } from "reactstrap";
+import EditTodo from "./EditTodo";
 
 export default class ListTodo extends Component {
   state = { todo: [{ todo_id: null, description: "" }], isLoading: false };
@@ -37,6 +38,10 @@ export default class ListTodo extends Component {
       console.error(err.message);
     }
   };
+  updateDescription = (childData) => {
+    this.setState({ todo: childData });
+    //create fetch PUT METHOD
+  };
 
   render() {
     if (this.state.isLoading) {
@@ -54,21 +59,9 @@ export default class ListTodo extends Component {
         {this.state.todo.map((todo) => (
           <Card key={todo.todo_id}>
             <CardBody>
-              <Row>
-                {" "}
-                <Col md={4}>
-                  {" "}
-                  <CardTitle tag="h5">Description:</CardTitle>
-                </Col> 
-                <Col md={8}>
-                  {" "}
-                  <CardText>{todo.description} </CardText>
-                </Col>
-              </Row>
-
-              <Button color="warning" className="mr-4">
-                Edit
-              </Button>
+              <CardTitle tag="h5">Description</CardTitle>{" "}
+              <CardText>{todo.description} </CardText>
+              <EditTodo updateDescription={this.updateDescription} />
               <Button
                 color="danger"
                 onClick={() => this.deleteTodo(todo.todo_id)}

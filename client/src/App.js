@@ -11,17 +11,14 @@ import InputTodo from "./components/InputTodo";
 function App() {
   return (
     <Fragment>
-      <h1 className="text-center">SIMPLE TODO</h1>
+      <h1 className="m-4 text-center">SIMPLE TODO</h1>
       <h4 className="text-center">app by Vasiles Petrides</h4>
       <Container className="m-5 justify-content-center">
           <Col>
             {" "}
             <InputTodo />
           </Col>{" "}
-          <Col>
-            {" "}
-            <EditTodo />
-          </Col>
+
         <Col className="align-self-center">
           <ListTodo />{" "}
         </Col>
