@@ -9,14 +9,13 @@ export default class ListTodo extends Component {
       .then((result) => this.setState({ description: result }));
   }
   render() {
+
     return (
       <div>
         <ul>
-          <div>
-            {this.state.description.map((todo) => (
-              <li key={todo.todo_id}>{todo.description}</li>
-            ))}
-          </div>
+          {this.state.description.map((todo) => (
+              <li className="Wrapper" key={todo.todo_id}>{todo.description}</li>
+          ))}
         </ul>
       </div>
     );

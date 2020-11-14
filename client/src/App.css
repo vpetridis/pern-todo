@@ -23,6 +23,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.Wrapper {
+  padding: 2em;
+  margin: 1.4em;
+  background: papayawhip;
+}
 
 .App-link {
   color: #61dafb;

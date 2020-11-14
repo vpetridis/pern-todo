@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import "./App.css";
 import EditTodo from "./components/EditTodo";
 import ListTodo from "./components/ListTodo";
-import BounceImage from "./components/BounceImage";
 
 //components
 import { Container, Col, Row } from "react-bootstrap";
@@ -13,7 +12,7 @@ function App() {
   return (
     <Fragment>
       <h1 className="text-center">Pern Todo List</h1>
-      <Container fluid className="m-5 justify-content-cente">
+      <Container fluid className="m-5 justify-content-center">
         <Row>
           <Col>
             {" "}
@@ -24,7 +23,7 @@ function App() {
             <EditTodo />
           </Col>
         </Row>
-        <Col>
+        <Col className="align-self-center" xs={6}>
           <ListTodo />{" "}
         </Col>
       </Container>
