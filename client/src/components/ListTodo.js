@@ -28,7 +28,8 @@ export default class ListTodo extends Component {
                 Todo description:{" "}
               </CardSubtitle>
               <CardText>{todo.description}</CardText>
-              <Button>Button</Button>
+              <Button color="warning" className="mr-4">Edit</Button>
+              <Button color="danger">Delete</Button>
             </CardBody>
           </Card>
         ))}
