@@ -30,7 +30,7 @@ export default class ListTodo extends Component {
         method: "DELETE"
       });
 
-      this.setState(todo.filter(todo => todo.todo_id !== id));
+      this.setState({todo: todo.filter(todo=> todo.todo_id !== id)});
     } catch (err) {
       console.error(err.message);
     }
