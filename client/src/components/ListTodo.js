@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 
 export default class ListTodo extends Component {
-  state = { todo: [{ todo_id: 0, description: "" }], isLoading: false };
+  state = { todo: [{ todo_id: null, description: "" }], isLoading: false };
 
   componentDidMount() {
     this.setState({ isLoading: true });
@@ -24,12 +24,13 @@ export default class ListTodo extends Component {
       );
   }
    deleteTodo = async id => {
+     const {todo} = this.state;
     try {
       const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "DELETE"
       });
 
-      this.setState(this.state.todo.filter(todo => todo.todo_id !== id));
+      this.setState(todo.filter(todo => todo.todo_id !== id));
     } catch (err) {
       console.error(err.message);
     }
@@ -48,7 +49,7 @@ export default class ListTodo extends Component {
     return (
       <div>
         {this.state.todo.map((todo) => (
-          <Card>
+          <Card key={todo.todo_id}>
             <CardBody>
               <CardTitle tag="h5">Todo ID: {todo.todo_id}</CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">
