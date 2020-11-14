@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
-import { Modal,Button } from "reactstrap";
+import { Button } from "reactstrap";
+import { Modal } from "react-bootstrap";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -30,7 +31,6 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function EditTodo() {
-
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
@@ -45,7 +45,6 @@ function EditTodo() {
       />
     </>
   );
-
-}  
+}
 
 export default EditTodo;

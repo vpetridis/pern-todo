@@ -11,19 +11,18 @@ import InputTodo from "./components/InputTodo";
 function App() {
   return (
     <Fragment>
-      <h1 className="text-center">Pern Todo List</h1>
-      <Container fluid className="m-5 justify-content-center">
-        <Row>
+      <h1 className="text-center">SIMPLE TODO</h1>
+      <h4 className="text-center">app by Vasiles Petrides</h4>
+      <Container className="m-5 justify-content-center">
           <Col>
             {" "}
             <InputTodo />
           </Col>{" "}
-          <Col xs={4}>
+          <Col>
             {" "}
             <EditTodo />
           </Col>
-        </Row>
-        <Col className="align-self-center" xs={6}>
+        <Col className="align-self-center">
           <ListTodo />{" "}
         </Col>
       </Container>
