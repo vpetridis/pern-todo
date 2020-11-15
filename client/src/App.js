@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./App.css";
 import EditTodo from "./components/EditTodo";
-import ListTodo from "./components/ListTodo";
+import ListTodos from "./components/ListTodo";
 
 //components
 import { Container, Col, Row } from "react-bootstrap";
@@ -21,7 +21,7 @@ function App() {
           </Col>{" "}
 
         <Col className="align-self-center">
-          {/* <ListTodo />{" "} */}
+          <ListTodos />{" "}
         </Col>
       </Container>
     </Fragment>
