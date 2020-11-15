@@ -1,13 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 import {
   Card,
-  Container,
-  Row,
-  Col,
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button,
   Spinner,
 } from "reactstrap";
@@ -26,12 +22,15 @@ const ListTodos = () => {
       console.error(error);
     }
   };
-
+  const updateDescription = (childData) => {
+    setTodos({ todo: childData });
+    console.log(childData);
+    //create fetch PUT METHOD
+  };
   const getTodos = async () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
       const jsonData = await response.json();
-
       setTodos(jsonData);
     } catch (err) {
       console.error(err.message);
@@ -49,11 +48,8 @@ const ListTodos = () => {
           <CardBody>
             <CardTitle tag="h5">Description</CardTitle>{" "}
             <CardText>{todo.description} </CardText>
-            {/* <EditTodo updateDescription={this.updateDescription} /> */}
-            <Button
-              color="danger"
-              onClick={() => deleteTodo(todo.todo_id)}
-            >
+            <EditTodo todos={todo} />
+            <Button color="danger" onClick={() => deleteTodo(todo.todo_id)}>
               Delete
             </Button>
           </CardBody>
