@@ -30,21 +30,23 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function EditTodo() {
+
+
   const [modalShow, setModalShow] = React.useState(false);
   
-  const saveData = (e) => {
-    this.props.updateDescription("FROM SAVE BUTTON!!!!!");
-  };
-  const multiFunc = (e)=> {
+  const multiFunc = ()=> {
     setModalShow(true);
-    //saveData(e);
+    saveData();
   }
+          const saveData = () => {
+           // this.props.updateDescription("FROM SAVE BUTTON!!!!!");
+          };
   return (
     <>
       <Button
         className="mr-2"
         color="warning"
-        onClick={(e) => multiFunc(e)}
+        onClick={multiFunc}
       >
         Edit{" "}
       </Button>
