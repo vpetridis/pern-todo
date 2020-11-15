@@ -4,6 +4,7 @@ import { Modal } from "react-bootstrap";
 
 const EditTodo = ({ todos }) => {
   const [modalShow, setModalShow] = useState(false);
+  
   const MyVerticallyCenteredModal = (props) => {
     const [description, setDescription] = useState(todos.description);
     function updateTodo(id) {

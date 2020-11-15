@@ -62,7 +62,7 @@ const ListTodos = () => {
             </Button>
           </CardBody>
         </Card>
-      ))}
+      )).reverse()}
     </Fragment>
   );
 };
