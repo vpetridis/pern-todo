@@ -2,6 +2,8 @@ import React, { useState, useEffect, Fragment } from "react";
 import {
   Card,
   CardText,
+  Container,
+  Row,
   CardBody,
   CardTitle,
   Button,
@@ -11,10 +13,11 @@ import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
   const [todo, setTodos] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   const deleteTodo = async (id) => {
     try {
-      const respone = await fetch(`http:\\localhost:5000\todos\${id}`, {
+      const respone = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "DELETE",
       });
       setTodos(todo.filter((todo) => todo.todo_id !== id));
@@ -22,16 +25,12 @@ const ListTodos = () => {
       console.error(error);
     }
   };
-  const updateDescription = (childData) => {
-    setTodos({ todo: childData });
-    console.log(childData);
-    //create fetch PUT METHOD
-  };
   const getTodos = async () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
       const jsonData = await response.json();
       setTodos(jsonData);
+      setLoading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -40,7 +39,16 @@ const ListTodos = () => {
   useEffect(() => {
     getTodos();
   }, []);
-
+  if (isLoading) {
+    return (
+      <Container>
+        <Row className="justify-content-center">
+          {" "}
+          <Spinner color="primary" />
+        </Row>
+      </Container>
+    );
+  }
   return (
     <Fragment>
       {todo.map((todo) => (

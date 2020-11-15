@@ -5,14 +5,21 @@ import { Modal } from "react-bootstrap";
 const EditTodo = ({ todos }) => {
   const [modalShow, setModalShow] = useState(false);
   const MyVerticallyCenteredModal = (props) => {
-    const [description, setDescription] = useState();
-
-    const updateTodo = (id) => {
-      const response = fetch(`http:\\localhost:5000\todo${id}`, {
-        method: "PUT",
-      });
-      setDescription(response);
-    };
+    const [description, setDescription] = useState(todos.description);
+    function updateTodo(id) {
+      try {
+        const body = { description };
+        const response = fetch(`http://localhost:5000/todos/${id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        console.log(todos.todo_id);
+        window.location = "/";
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
     return (
       <Modal
@@ -26,23 +33,22 @@ const EditTodo = ({ todos }) => {
         </Modal.Header>
         <Modal.Body>
           <form className="m-4">
-            <input type="text" className="form-control" />
+            <input
+              type="text"
+              className="form-control"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button color="primary" onClick={() => updateTodo}>
+          <Button color="primary" onClick={()=>updateTodo(todos.todo_id)}>
             Save
           </Button>
         </Modal.Footer>
       </Modal>
     );
   };
-  //const [todo, setTodo] = useState(todos.todo);
-  // const multiFunc = () => {
-  //   setTodo({ todo: todos.todo });
-  //   setModalShow(true);
-  // };
-
   return (
     <>
       <Button
