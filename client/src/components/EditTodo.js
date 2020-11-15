@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import { Button } from "reactstrap";
 import { Modal } from "react-bootstrap";
 
-function MyVerticallyCenteredModal(props) {
+const MyVerticallyCenteredModal = (props) => {
   const [description, setDescription] = useState(props.datafromParent);
 
   return (
