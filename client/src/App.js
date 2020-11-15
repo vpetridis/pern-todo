@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
 import "./App.css";
-import EditTodo from "./components/EditTodo";
-import ListTodos from "./components/ListTodo";
+import 'react-grid-layout/css/styles.css' 
+import 'react-resizable/css/styles.css' 
+import ListTodos  from "./components/ListTodo";
 
 //components
 import { Container, Col, Row } from "react-bootstrap";
-
+import Grid from "./components/Grid"
 import InputTodo from "./components/InputTodo";
 
 //TODO UNCOMMENT LISTODO!
