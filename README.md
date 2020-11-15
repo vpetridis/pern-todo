@@ -12,7 +12,8 @@ Created a sample app for CRUD operations with the PERN Stack. Specific attention
 - Create client with React
 - Learn and implement Reactstrap, Bootstrap and Semantic UI for the Fronted
 - Use Modals for editing entries
-- Us Classes and function Components, interchangeably
+- Reverse the todos list from newer to older
+- Use Classes and function Components, interchangeably
 
 # TODO
 - Build responsive multigrid auto-layout 
