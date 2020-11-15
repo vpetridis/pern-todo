@@ -8,6 +8,7 @@ import { Container, Col, Row } from "react-bootstrap";
 
 import InputTodo from "./components/InputTodo";
 
+//TODO UNCOMMENT LISTODO!
 function App() {
   return (
     <Fragment>
@@ -16,11 +17,11 @@ function App() {
       <Container className="m-5 justify-content-center">
           <Col>
             {" "}
-            <InputTodo />
+            {/* <InputTodo /> */}
           </Col>{" "}
 
         <Col className="align-self-center">
-          <ListTodo />{" "}
+          {/* <ListTodo />{" "} */}
         </Col>
       </Container>
     </Fragment>
