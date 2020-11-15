@@ -17,7 +17,7 @@ function App() {
       <Container className="m-5 justify-content-center">
           <Col>
             {" "}
-            {/* <InputTodo /> */}
+            <InputTodo />
           </Col>{" "}
 
         <Col className="align-self-center">
