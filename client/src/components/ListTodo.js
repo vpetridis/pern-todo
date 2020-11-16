@@ -10,11 +10,10 @@ import {
   Spinner,
 } from "reactstrap";
 import EditTodo from "./EditTodo";
-import GridLayout from "react-grid-layout";
+import TestBulma from "./TestBulma";
 
 const ListTodos = () => {
-  const layout = [{ i: "b", x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 }];
-
+  
   const [todo, setTodos] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -53,27 +52,24 @@ const ListTodos = () => {
     );
   }
   return (
-    <Fragment>
-   
-        {todo
-          .map((todo) => (
-        
-              <Card key={todo.todo_id}>
-                <CardBody>
-                  <CardTitle tag="h5">Description</CardTitle>{" "}
-                  <CardText>{todo.description} </CardText>
-                  <EditTodo todos={todo} />
-                  <Button
-                    color="danger"
-                    onClick={() => deleteTodo(todo.todo_id)}
-                  >
-                    Delete
-                  </Button>
-                </CardBody>
-              </Card>
     
-          ))
-          .reverse()}
+    <Fragment>
+    <TestBulma/>
+
+      {todo
+        .map((todo) => (
+          <Card key={todo.todo_id}>
+            <CardBody>
+              <CardTitle tag="h5">Description</CardTitle>{" "}
+              <CardText>{todo.description} </CardText>
+              <EditTodo todos={todo} />
+              <Button color="danger" onClick={() => deleteTodo(todo.todo_id)}>
+                Delete
+              </Button>
+            </CardBody>
+          </Card>
+        ))
+        .reverse()}
     </Fragment>
   );
 };

@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import { Button } from "reactstrap";
 import { Modal } from "react-bootstrap";
 
+
 const EditTodo = ({ todos }) => {
   const [modalShow, setModalShow] = useState(false);
   
