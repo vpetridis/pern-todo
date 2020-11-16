@@ -1,13 +1,12 @@
-import React, { Component, useState } from "react";
-import { Button } from "reactstrap";
-import { Modal } from "react-bootstrap";
-
+import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 
 const EditTodo = ({ todos }) => {
   const [modalShow, setModalShow] = useState(false);
-  
+
   const MyVerticallyCenteredModal = (props) => {
     const [description, setDescription] = useState(todos.description);
+
     function updateTodo(id) {
       try {
         const body = { description };
@@ -17,6 +16,7 @@ const EditTodo = ({ todos }) => {
           body: JSON.stringify(body),
         });
         console.log(todos.todo_id);
+
         window.location = "/";
       } catch (error) {
         console.error(error);
@@ -31,7 +31,7 @@ const EditTodo = ({ todos }) => {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Edit</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">Save</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form className="m-4">
@@ -44,7 +44,7 @@ const EditTodo = ({ todos }) => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button color="primary" onClick={()=>updateTodo(todos.todo_id)}>
+          <Button color="primary" onClick={() => updateTodo(todos.todo_id)}>
             Save
           </Button>
         </Modal.Footer>
@@ -53,12 +53,8 @@ const EditTodo = ({ todos }) => {
   };
   return (
     <>
-      <Button
-        className="mr-2"
-        color="warning"
-        onClick={() => setModalShow(true)}
-      >
-        Edit{" "}
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        Edit
       </Button>
 
       <MyVerticallyCenteredModal

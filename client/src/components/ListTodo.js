@@ -4,29 +4,17 @@ import {
   CardText,
   Container,
   Row,
+  Button,
   CardBody,
   CardTitle,
-  Button,
   Spinner,
 } from "reactstrap";
 import EditTodo from "./EditTodo";
-import TestBulma from "./TestBulma";
 
 const ListTodos = () => {
-  
   const [todo, setTodos] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  const deleteTodo = async (id) => {
-    try {
-      const respone = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE",
-      });
-      setTodos(todo.filter((todo) => todo.todo_id !== id));
-    } catch (error) {
-      console.error(error);
-    }
-  };
   const getTodos = async () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
@@ -37,10 +25,21 @@ const ListTodos = () => {
       console.error(err.message);
     }
   };
+  const deleteTodo = async (id) => {
+    try {
+      const respone = await fetch(`http://localhost:5000/todos/${id}`, {
+        method: "DELETE",
+      });
+      setTodos(todo.filter((todo) => todo.todo_id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     getTodos();
   }, []);
+  
   if (isLoading) {
     return (
       <Container>
@@ -52,10 +51,7 @@ const ListTodos = () => {
     );
   }
   return (
-    
     <Fragment>
-    <TestBulma/>
-
       {todo
         .map((todo) => (
           <Card key={todo.todo_id}>
@@ -63,7 +59,10 @@ const ListTodos = () => {
               <CardTitle tag="h5">Description</CardTitle>{" "}
               <CardText>{todo.description} </CardText>
               <EditTodo todos={todo} />
-              <Button color="danger" onClick={() => deleteTodo(todo.todo_id)}>
+              <Button
+                className="button danger"
+                onClick={() => deleteTodo(todo.todo_id)}
+              >
                 Delete
               </Button>
             </CardBody>
