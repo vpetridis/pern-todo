@@ -5,11 +5,12 @@ import {
   CardText,
   Container,
   Row,
-  Button,
   CardBody,
   CardTitle,
   Spinner,
 } from "reactstrap";
+import { Button } from 'react-bootstrap';
+
 import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
@@ -65,7 +66,7 @@ const ListTodos = () => {
                   <CardText>{todo.description} </CardText>
                   <EditTodo todos={todo} />
                   <Button
-                    color="danger"
+                     variant="danger"
                     onClick={() => deleteTodo(todo.todo_id)}
                   >
                     Delete

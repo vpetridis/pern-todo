@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from "react";
+import { Alert } from "react-bootstrap";
 
 const InputTodo = () => {
   const [description, setDescription] = useState("");
 
   const onSubmitForm = async (e) => {
+
     e.preventDefault();
     try {
       const body = { description };
@@ -12,11 +14,15 @@ const InputTodo = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-console.log(response);
       window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
+  };
+
+  const handelInput = (e) => {
+    const { value } = e.target;
+    setDescription(value);
   };
 
   return (
@@ -26,7 +32,7 @@ console.log(response);
           type="text"
           className="form-control mr-1"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handelInput}
         />
         <button className="btn btn-success">Add</button>
       </form>

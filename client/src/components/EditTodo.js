@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
+
 const EditTodo = ({ todos }) => {
   const [modalShow, setModalShow] = useState(false);
 
@@ -44,7 +45,7 @@ const EditTodo = ({ todos }) => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button color="primary" onClick={() => updateTodo(todos.todo_id)}>
+          <Button variant="outline-success" onClick={() => updateTodo(todos.todo_id)}>
             Save
           </Button>
         </Modal.Footer>
