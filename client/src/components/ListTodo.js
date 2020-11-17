@@ -9,14 +9,13 @@ import {
   CardTitle,
   Spinner,
 } from "reactstrap";
-import { Button } from 'react-bootstrap';
+import { Button } from "react-bootstrap";
 
 import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
   const [todo, setTodos] = useState([]);
   const [isLoading, setLoading] = useState(true);
-
   const getTodos = async () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
@@ -52,13 +51,15 @@ const ListTodos = () => {
       </Container>
     );
   }
+  const ToasterElement = React.createElement("div");
+
   return (
     <Fragment>
       <Row>
         {" "}
         {todo
           .map((todo) => (
-            <Col xs={{size: 'auto'}} key={todo.todo_id}>
+            <Col xs={{ size: "auto" }} key={todo.todo_id}>
               {" "}
               <Card className="m-1" key={todo.todo_id}>
                 <CardBody>
@@ -66,7 +67,7 @@ const ListTodos = () => {
                   <CardText>{todo.description} </CardText>
                   <EditTodo todos={todo} />
                   <Button
-                     variant="danger"
+                    variant="danger"
                     onClick={() => deleteTodo(todo.todo_id)}
                   >
                     Delete
