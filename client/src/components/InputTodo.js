@@ -7,7 +7,10 @@ const InputTodo = () => {
   const [description, setDescription] = useState("");
 
   const onSubmitForm = async (e) => {
-    const notify = () => toast.warning("You need to add a description!", {position: toast.POSITION.TOP_CENTER});
+    const notify = () =>
+      toast.info("You need to add a description!", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     {
       <div>
         <button onClick={notify}>Notify !</button>

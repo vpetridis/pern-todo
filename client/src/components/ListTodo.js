@@ -1,4 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
+import "../App.css";
+
 import {
   Card,
   Col,
@@ -8,6 +10,10 @@ import {
   CardBody,
   CardTitle,
   Spinner,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
 import { Button } from "react-bootstrap";
 
@@ -16,6 +22,31 @@ import EditTodo from "./EditTodo";
 const ListTodos = () => {
   const [todo, setTodos] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [color, setColor] = useState("");
+
+  const changeColor = (e) => {
+    setColor({ color: e });
+  };
+
+  const ChooseColor = (props) => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen((prevState) => !prevState);
+
+    return (
+      <Dropdown class="Dropdown" isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle class="Dropdown"color="primary" caret>
+          Color
+        </DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem>Red</DropdownItem>
+          <DropdownItem>Blue</DropdownItem>
+          <DropdownItem>Green</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    );
+  };
+
   const getTodos = async () => {
     try {
       const response = await fetch("http://localhost:5000/todos");
@@ -28,7 +59,7 @@ const ListTodos = () => {
   };
   const deleteTodo = async (id) => {
     try {
-      const respone = await fetch(`http://localhost:5000/todos/${id}`, {
+      const response = await fetch(`http://localhost:5000/todos/${id}`, {
         method: "DELETE",
       });
       setTodos(todo.filter((todo) => todo.todo_id !== id));
@@ -61,17 +92,22 @@ const ListTodos = () => {
           .map((todo) => (
             <Col xs={{ size: "auto" }} key={todo.todo_id}>
               {" "}
-              <Card className="m-1" key={todo.todo_id}>
+              <Card body color={color} className="m-1" key={todo.todo_id}>
                 <CardBody>
                   <CardTitle tag="h5">Description</CardTitle>{" "}
                   <CardText>{todo.description} </CardText>
-                  <EditTodo todos={todo} />
-                  <Button
-                    variant="danger"
-                    onClick={() => deleteTodo(todo.todo_id)}
-                  >
-                    Delete
-                  </Button>
+                  <Row>
+                    {" "}
+                    <EditTodo className="m-2" todos={todo} />{" "}
+                    <Button
+                      className="m-1"
+                      variant="danger"
+                      onClick={() => deleteTodo(todo.todo_id)}
+                    >
+                      Delete
+                    </Button>{" "}
+                    <ChooseColor />
+                  </Row>
                 </CardBody>
               </Card>
             </Col>

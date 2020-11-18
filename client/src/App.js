@@ -11,32 +11,66 @@ import InputTodo from "./components/InputTodo";
 function App() {
   return (
     <Fragment>
-    <Container>
-      <Row >
-        {" "}
-        <Col lg="4">
-          <div className="m-4">
-            {" "}
-            <h1 className=" text-center">SIMPLE TODO</h1>
-            <h4 className="text-center">app by Vasiles Petrides</h4>
-            <br></br>
-            <p > This is a  <b>fully responise</b> todo-app with basic CRUD operations.
-             It is mobile friendly, in a sense that all the entries rearrange depending on the viewport. 
-             The app is using <a href="https://www.npmjs.com/package/react-toastify" target="_blank">toastify</a> to create gentle alerts to the user. Try adding an empty todo! </p>
-          </div>
-        </Col>
-        <Col lg='8' className="mt-5">
+      <Container>
+        <Row>
           {" "}
-          
-            <Col>
-              <InputTodo />
+          <Col lg="4">
+            <div className="m-4">
+              {" "}
+              <h1 className=" text-center">SIMPLE TODO</h1>
+              <h4 className="text-center">app by Vasiles Petrides</h4>
+              <br></br>
+              <p>
+                {" "}
+                This is a <b>fully responsive</b> todo-app with basic CRUD
+                operations. It is <b>mobile friendly</b>, in a sense that all
+                the entries rearrange depending on the viewport. For this, it
+                uses the Grid System from
+                <a
+                  href="https://react-bootstrap.github.io/layout/grid/"
+                  target="_blank"
+                >
+                  {" "}
+                  react-bootstrap
+                </a>
+                .
+              </p>
+              <p>
+                The app is using{" "}
+                <a
+                  href="https://www.npmjs.com/package/react-toastify"
+                  target="_blank"
+                >
+                  toastify
+                </a>{" "}
+                to create gentle alerts to the user. Try adding an empty todo!{" "}
+                All Edit buttons implement a centered{" "}
+                <a
+                  href="https://react-bootstrap.netlify.app/components/modal/#modal-vertically-centered"
+                  target="_blank"
+                >
+                  Modal
+                </a>
+                .
+              </p>
+              <p>
+                For the backend:
+                <ul>
+                  <li>Node</li> <li>Express</li> <li>PostgreSQL</li>
+                </ul>{" "}
+              </p>
+            </div>
+          </Col>
+          <Col lg="8" className="mt-5">
+            {" "}
+            <Col className="mb-4">
+              <InputTodo/>
             </Col>
             <Col>
               <ListTodos />{" "}
             </Col>
-         
-        </Col>
-      </Row>
+          </Col>
+        </Row>
       </Container>
     </Fragment>
   );

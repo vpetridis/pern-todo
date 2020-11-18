@@ -54,7 +54,7 @@ const EditTodo = ({ todos }) => {
   };
   return (
     <>
-      <Button variant="warning" className="mr-2" onClick={() => setModalShow(true)}>
+      <Button variant="warning" className="m-1" onClick={() => setModalShow(true)}>
         Edit
       </Button>
 
