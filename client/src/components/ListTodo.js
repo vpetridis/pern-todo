@@ -34,12 +34,14 @@ const ListTodos = () => {
     const toggle = () => setDropdownOpen((prevState) => !prevState);
 
     return (
-      <Dropdown class="Dropdown" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle class="Dropdown"color="primary" caret>
+      <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+        <DropdownToggle style={{position: "relative", bottom:"-5px"}} class="Dropdown" color="primary" caret>
           Color
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Red</DropdownItem>
+          <DropdownItem>
+            <div class="bg-black">black</div>
+          </DropdownItem>
           <DropdownItem>Blue</DropdownItem>
           <DropdownItem>Green</DropdownItem>
         </DropdownMenu>
