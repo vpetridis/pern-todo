@@ -39,8 +39,7 @@ const ListTodos = () => {
           Color
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>
-            <div class="bg-black">black</div>
+          <DropdownItem>Red
           </DropdownItem>
           <DropdownItem>Blue</DropdownItem>
           <DropdownItem>Green</DropdownItem>
@@ -100,7 +99,7 @@ const ListTodos = () => {
                   <CardText>{todo.description} </CardText>
                   <Row>
                     {" "}
-                    <EditTodo className="m-2" todos={todo} />{" "}
+                    <EditTodo todos={todo} />{" "}
                     <Button
                       className="m-1"
                       variant="danger"

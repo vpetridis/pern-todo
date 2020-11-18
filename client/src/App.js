@@ -4,11 +4,20 @@ import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import ListTodos from "./components/ListTodo";
 //components
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, ListGroup, ListGroupItem } from "react-bootstrap";
 import InputTodo from "./components/InputTodo";
 
 //TODO UNCOMMENT LISTODO!
 function App() {
+  function ListGroupIntro() {
+    return (
+      <ListGroup.Item variant="flush">
+        <ListGroup.Item variant="primary">PostgreSQL</ListGroup.Item>
+        <ListGroup.Item variant="secondary">NodeJS</ListGroup.Item>
+        <ListGroup.Item variant="success">Express</ListGroup.Item>
+      </ListGroup.Item>
+    );
+  }
   return (
     <Fragment>
       <Container>
@@ -17,8 +26,8 @@ function App() {
           <Col lg="4">
             <div className="m-4">
               {" "}
-              <h1 className=" text-center">SIMPLE TODO</h1>
-              <h4 className="text-center">app by Vasiles Petrides</h4>
+              <h1 className=" text-center">MyTODOs</h1>
+              <h4 className="text-center">responsive</h4>
               <br></br>
               <p>
                 {" "}
@@ -53,18 +62,16 @@ function App() {
                 </a>
                 .
               </p>
-              <p>
-                For the backend:
-                <ul>
-                  <li>Node</li> <li>Express</li> <li>PostgreSQL</li>
-                </ul>{" "}
-              </p>
+              
+               <h3>BACKEND</h3>
+                <ListGroupIntro />
+              
             </div>
           </Col>
           <Col lg="8" className="mt-5">
             {" "}
             <Col className="mb-4">
-              <InputTodo/>
+              <InputTodo />
             </Col>
             <Col>
               <ListTodos />{" "}
