@@ -25,8 +25,8 @@ const ListTodos = () => {
   const [color, setColor] = useState("");
 
   const changeColor = (e) => {
-    const {color} = e.toString();
-    setColor({ color:  color});
+    const color = e;
+    setColor({ color: color });
     console.log({ color });
   };
   const ChooseColor = (props) => {
@@ -44,8 +44,12 @@ const ListTodos = () => {
           Color
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem onClick={()=>changeColor("warning")}>Red</DropdownItem>
-          <DropdownItem onClick={()=>changeColor("success")}>Blue</DropdownItem>
+          <DropdownItem onClick={() => changeColor("warning")}>
+            Red
+          </DropdownItem>
+          <DropdownItem onClick={() => changeColor("success")}>
+            Blue
+          </DropdownItem>
           <DropdownItem>Green</DropdownItem>
         </DropdownMenu>
       </Dropdown>
@@ -97,7 +101,7 @@ const ListTodos = () => {
           .map((todo) => (
             <Col xs={{ size: "auto" }} key={todo.todo_id}>
               {" "}
-              <Card body color={color} className="m-1" key={todo.todo_id}>
+              <Card body color={color.color} className="m-1" key={todo.todo_id}>
                 <CardBody>
                   <CardTitle tag="h5">Description</CardTitle>{" "}
                   <CardText>{todo.description} </CardText>
