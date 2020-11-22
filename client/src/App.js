@@ -13,14 +13,14 @@ function App() {
     return (
       <ListGroup.Item variant="flush">
         <ListGroup.Item variant="primary">PostgreSQL</ListGroup.Item>
-        <ListGroup.Item variant="secondary">NodeJS</ListGroup.Item>
+        <ListGroup.Item variant="secon dary">NodeJS</ListGroup.Item>
         <ListGroup.Item variant="success">Express</ListGroup.Item>
       </ListGroup.Item>
     );
   }
   return (
     <Fragment>
-      <Container>
+      <Container> 
         <Row>
           {" "}
           <Col lg="4">

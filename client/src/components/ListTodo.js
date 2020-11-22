@@ -25,9 +25,10 @@ const ListTodos = () => {
   const [color, setColor] = useState("");
 
   const changeColor = (e) => {
-    setColor({ color: e });
+    const {color} = e.toString();
+    setColor({ color:  color});
+    console.log({ color });
   };
-
   const ChooseColor = (props) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -35,13 +36,16 @@ const ListTodos = () => {
 
     return (
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle style={{position: "relative", bottom:"-5px"}} class="Dropdown" color="primary" caret>
+        <DropdownToggle
+          style={{ position: "relative", bottom: "-5px" }}
+          color="primary"
+          caret
+        >
           Color
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Red
-          </DropdownItem>
-          <DropdownItem>Blue</DropdownItem>
+          <DropdownItem onClick={()=>changeColor("warning")}>Red</DropdownItem>
+          <DropdownItem onClick={()=>changeColor("success")}>Blue</DropdownItem>
           <DropdownItem>Green</DropdownItem>
         </DropdownMenu>
       </Dropdown>
