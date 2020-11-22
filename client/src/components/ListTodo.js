@@ -24,15 +24,35 @@ const ListTodos = () => {
   const [isLoading, setLoading] = useState(true);
   const [color, setColor] = useState("");
 
-  const changeColor = (e) => {
-    const color = e;
-    setColor({ color: color });
-    console.log({ color });
-  };
+  //TODO - CREATE TABLE COLUMN OF COLORS AND SAVE IT WITH POST.
+
   const ChooseColor = (props) => {
+    const changeColor = (e) => {
+      const color = e;
+      setColor({ color: color });
+      // console.log({ color });
+    };
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen((prevState) => !prevState);
+    const todo_id = props.colorId;
+    console.log(todo_id);
+    
+    function updateColor() {
+      try {
+        const color = "success";
+        console.log(color);
+        const response = fetch(`http://localhost:5000/todos/${todo_id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(color),
+        });
+
+        window.location = "/";
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
     return (
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -44,13 +64,15 @@ const ListTodos = () => {
           Color
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem onClick={() => changeColor("warning")}>
-            Red
-          </DropdownItem>
           <DropdownItem onClick={() => changeColor("success")}>
-            Blue
+            Done
           </DropdownItem>
-          <DropdownItem>Green</DropdownItem>
+          <DropdownItem onClick={() => changeColor("warning ")}>
+            Due
+          </DropdownItem>
+          <DropdownItem onClick={() => changeColor("danger")}>
+            Important
+          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
@@ -115,7 +137,7 @@ const ListTodos = () => {
                     >
                       Delete
                     </Button>{" "}
-                    <ChooseColor />
+                    <ChooseColor colorId={todo.todo_id} />
                   </Row>
                 </CardBody>
               </Card>
