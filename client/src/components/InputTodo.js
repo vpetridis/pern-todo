@@ -8,9 +8,41 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+let colorG;
+const ColorInput = (props) => {
+  const [color, setColor] = useState("");
+  colorG = color;
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
+
+  const handleSuccess = (e) => {
+    setColor("success");
+  };
+  const handleImportant = (e) => {
+    setColor("warning");
+  };
+  const handleOverdue = (e) => {
+    setColor("danger");
+  };
+
+  
+  return (
+    <Dropdown className="mx-2" isOpen={dropdownOpen} toggle={toggle}>
+      <DropdownToggle outline color="primary" caret>
+        Color
+      </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem onClick={handleSuccess}>Default</DropdownItem>
+        <DropdownItem onClick={handleImportant}>Important</DropdownItem>
+        <DropdownItem onClick={handleOverdue}>Overdue!</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  );
+};
+
 const InputTodo = () => {
   const [description, setDescription] = useState("");
-  const [color, setColor] = useState("");
 
   const onSubmitForm = async (e) => {
     const notify = () =>
@@ -31,7 +63,7 @@ const InputTodo = () => {
       try {
         const todo = {
           description: `${description}`,
-          colors: `${color}`,
+          colors: `${colorG}`,
         };
         const response = await fetch("http://localhost:5000/todos", {
           method: "POST",
@@ -49,39 +81,7 @@ const InputTodo = () => {
     setDescription(value);
   };
 
-  const handleSuccess = (e) => {
-    const { color } = e.target;
-    setColor("success");
-  };
-  const handleImportant = (e) => {
-    const { color } = e.target;
-    setColor("warning");
-  };
-  const handleOverdue = (e) => {
-    const { color } = e.target;
-    setColor("danger");
-  };
   /* COLOR DROPDOWN */
-
-  const ColorInput = (props) => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    const toggle = () => setDropdownOpen((prevState) => !prevState);
-
-    return (
-      <Dropdown className="mx-2" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle outline color="primary" caret>
-          Color
-        </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem onClick={handleSuccess}>Default</DropdownItem>
-          <DropdownItem onClick={handleImportant}>Important</DropdownItem>
-          <DropdownItem onClick={handleOverdue  }>Overdue!</DropdownItem>
-
-        </DropdownMenu>
-      </Dropdown>
-    );
-  };
 
   return (
     <Fragment>
@@ -100,4 +100,5 @@ const InputTodo = () => {
   );
 };
 
+export { ColorInput };
 export default InputTodo;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ColorInput } from "./InputTodo";
 import { Modal, Button } from "react-bootstrap";
 import {
   Dropdown,
@@ -10,15 +11,18 @@ const EditTodo = ({ todos }) => {
   const [modalShow, setModalShow] = useState(false);
 
   const MyVerticallyCenteredModal = (props) => {
+    const [color, setColor] = useState("");
     const [description, setDescription] = useState(todos.description);
-
+    const todo = {
+      description: `${description}`,
+      colors: `${color}`,
+    };
     function updateTodo(id) {
       try {
-        const body = { description };
         const response = fetch(`http://localhost:5000/todos/${id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
+          body: JSON.stringify(todo),
         });
         console.log(todos.todo_id);
 
@@ -57,6 +61,7 @@ const EditTodo = ({ todos }) => {
           >
             Save
           </Button>
+          <ColorInput getId={todos.todo_id} />
         </Modal.Footer>
       </Modal>
     );
@@ -70,7 +75,6 @@ const EditTodo = ({ todos }) => {
       >
         Edit
       </Button>
-
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
