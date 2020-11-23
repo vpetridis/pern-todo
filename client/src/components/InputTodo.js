@@ -49,11 +49,18 @@ const InputTodo = () => {
     setDescription(value);
   };
 
-  const handleColor = (e) => {
+  const handleSuccess = (e) => {
     const { color } = e.target;
-    setColor(color);
+    setColor("success");
   };
-
+  const handleImportant = (e) => {
+    const { color } = e.target;
+    setColor("warning");
+  };
+  const handleOverdue = (e) => {
+    const { color } = e.target;
+    setColor("danger");
+  };
   /* COLOR DROPDOWN */
 
   const ColorInput = (props) => {
@@ -63,9 +70,13 @@ const InputTodo = () => {
 
     return (
       <Dropdown className="mx-2" isOpen={dropdownOpen} toggle={toggle}>
-        <DropdownToggle outline color="primary" caret>Color</DropdownToggle>
+        <DropdownToggle outline color="primary" caret>
+          Color
+        </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Important!</DropdownItem>
+          <DropdownItem onClick={handleSuccess}>Default</DropdownItem>
+          <DropdownItem onClick={handleImportant}>Important</DropdownItem>
+          <DropdownItem onClick={handleOverdue  }>Overdue!</DropdownItem>
 
         </DropdownMenu>
       </Dropdown>

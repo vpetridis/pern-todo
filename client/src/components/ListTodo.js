@@ -18,6 +18,7 @@ import EditTodo from "./EditTodo";
 const ListTodos = () => {
   const [todo, setTodos] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [color, setColor] = useState("");
 
   //TODO - CREATE TABLE COLUMN OF COLORS AND SAVE IT WITH POST.
 
@@ -67,7 +68,7 @@ const ListTodos = () => {
             <Col xs={{ size: "auto" }} key={todo.todo_id}>
               {" "}
               {/*  NA MPEI MESA STO CARD BODY color={color.color} */}
-              <Card body  className="m-1" key={todo.todo_id}>
+              <Card color={todo.colors} body className="m-1" key={todo.todo_id}>
                 <CardBody>
                   <CardTitle tag="h5">Description</CardTitle>{" "}
                   <CardText>{todo.description} </CardText>

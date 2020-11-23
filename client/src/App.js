@@ -60,7 +60,7 @@ function App() {
                 >
                   Modal
                 </a>
-                .
+                . All todos can be assigned a color value upon creation depending on the importance.
               </p>
               
                <h3>BACKEND</h3>
