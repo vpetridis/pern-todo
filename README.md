@@ -1,4 +1,5 @@
 # Simple TODO App
+![](todogif.gif)
 
 Created a sample app for CRUD operations with the PERN Stack. Specific attention was given in learning various technologies for the Frontend.
 # Main goals of this excersice: 
@@ -20,5 +21,4 @@ Created a sample app for CRUD operations with the PERN Stack. Specific attention
 - Authenticate
 - Publish todos with Twitter API
 - Deploy app 
-![](todogif.gif)
 
