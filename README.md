@@ -20,4 +20,5 @@ Created a sample app for CRUD operations with the PERN Stack. Specific attention
 - Authenticate
 - Publish todos with Twitter API
 - Deploy app 
+![](todogif.gif)
 
