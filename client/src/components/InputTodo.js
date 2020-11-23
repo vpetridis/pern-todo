@@ -46,7 +46,7 @@ const InputTodo = () => {
       <form className="d-flex" onSubmit={onSubmitForm}>
         <input
           type="text"
-          className="form-control mr-1"
+          className="form-control mr-1 shadow-sm p-3 "
           value={description}
           onChange={handelInput}
         />
