@@ -8,7 +8,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-let colorG;
+let colorGlobal;
 const ColorInput = (props) => {
   const [color, setColor] = useState("");
   colorG = color;
