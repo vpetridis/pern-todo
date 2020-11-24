@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 let colorGlobal;
 const ColorInput = (props) => {
   const [color, setColor] = useState("");
-  colorG = color;
+  colorGlobal = color;
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
@@ -63,7 +63,7 @@ const InputTodo = () => {
       try {
         const todo = {
           description: `${description}`,
-          colors: `${colorG}`,
+          colors: `${colorGlobal}`,
         };
         const response = await fetch("http://localhost:5000/todos", {
           method: "POST",
