@@ -4,8 +4,7 @@
 Created a sample app for CRUD operations with the PERN Stack. Specific attention was given in learning various technologies for the Frontend.
 # Main goals of this excersice: 
 
-- Follow only half of a PERN tutorial
-- Build components with various libraries on top of the tutorial
+- Build components with various libraries on top
 - Create database (PostgresSQL)
 - Create Server (NodeJS)
 - Create all the CRUD operations
